@@ -9,7 +9,7 @@ initDb((err) => {
   if (err) {
     console.error(err);
   } else {
-    app.listen(PORT, () => console.log(`DB connected. Server running on port ${PORT}`));
+    app.listen(PORT, () => console.log(`DB connected. Server running on port: ${PORT}`));
   }
 });
 
