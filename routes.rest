@@ -7,9 +7,31 @@ http://localhost:3000/contacts
 ###
 http://localhost:3000/contacts/682b2f4cee8a9b21a27e3535
 
+    {
+  "_id": "682b2f4cee8a9b21a27e3535",
+  "firstName": "Pulane",
+  "lastName": "Mabula",
+  "email": "pulane@edu.com",
+  "favoriteColor": "blue",
+  "birthday": "1990-06-21"
+}
+
 
 ###
 http://localhost:3000/contacts/682b30cdee8a9b21a27e3536
+
+
+{
+  "_id": "682b30cdee8a9b21a27e3536",
+  "firstName": "paballo",
+  "lastName": "Johnson",
+  "email": "Pabij@example.com",
+  "favoriteColor": "blue",
+  "birthday": "1992-01-23"
+}
+
+
+
 
 ### Production
 
