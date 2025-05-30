@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,8 +16,16 @@ initDb((err) => {
 
 dotenv.config();
 app.use(express.json());
-
+app.use(bodyParser.json());
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Header','Origin, X-Requested-With, Content-Type, Accept, Z-Key');
+    res.setHeader('Access-Control_Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    next();
+});
 app.use('/', require('./routes'));
+
+
 app.use('/contacts', contactsRoute);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
