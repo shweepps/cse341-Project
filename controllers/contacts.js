@@ -77,7 +77,20 @@ const updateContact = async (req, res) => {
       return res.status(400).json({ error: 'Invalid ID format' });
     }
 
-    const updatedContact = req.body;
+    // Pick only allowed fields from req.body
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+    const updatedContact = {};
+
+    if (firstName !== undefined)   updatedContact.firstName   = firstName;
+    if (lastName  !== undefined)   updatedContact.lastName    = lastName;
+    if (email     !== undefined)   updatedContact.email       = email;
+    if (favoriteColor !== undefined) updatedContact.favoriteColor = favoriteColor;
+    if (birthday  !== undefined)   updatedContact.birthday    = birthday;
+
+    if (Object.keys(updatedContact).length === 0) {
+      return res.status(400).json({ error: 'Request body is empty or contains no updatable fields' });
+    }
+
     const result = await db.collection('contacts').updateOne(
       { _id: new ObjectId(id) },
       { $set: updatedContact }
@@ -90,9 +103,10 @@ const updateContact = async (req, res) => {
     res.json({ message: 'Contact updated successfully' });
   } catch (err) {
     console.error('Failed to update contact:', err);
-    res.status(500).json({ error: 'An error occurred while updating the contact.' });
+    res.status(500).json({ error: 'Server error while updating contact' });
   }
 };
+
 
 // DELETE a contact
 const deleteContact = async (req, res) => {
