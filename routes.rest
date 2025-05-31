@@ -36,9 +36,9 @@ POST http://localhost:3000/contacts/ HTTP/1.1
 Content-Type: application/json
 
   {
-    "firstName": "Mosia",
+    "firstName": "sope",
     "lastName": "Mojafy",
-    "email": "Awela@edu.com",
+    "email": "Awelolea@edu.com",
     "favoriteColor": "Yello",
     "birthday": "1983-12-15"
   }
@@ -48,7 +48,7 @@ PUT http://localhost:3000/contacts/682cfdb7eb52eca3598b3ff7
 Content-Type: application/json
 
   {
-    "firstName": "Mojalefa",
+    "firstName": "Molile",
     "lastName": "Mosia",
     "email": "Mosia@edu.com",
     "favoriteColor": "Yello",
@@ -57,7 +57,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/contacts/68398c7d1f59b80cc0f9d1c6
+DELETE http://localhost:3000/contacts/6839aac1e22f3b69b405a7e0
 Content-Type: application/json
 
 
